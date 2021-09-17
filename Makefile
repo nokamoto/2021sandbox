@@ -7,7 +7,7 @@ go: go-fmt go-test
 
 .PHONY: go-build-example
 go-build-example:
-	sudo pack build example --builder gcr.io/buildpacks/builder:v1 
+	pack build example --builder gcr.io/buildpacks/builder:v1 
 
 .PHONY: go-fmt
 go-fmt:
