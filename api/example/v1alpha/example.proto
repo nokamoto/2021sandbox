@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package example.v1alpha;
+
+option go_package = "github.com/nokamoto/sandbox/internal/proto/example/v1alpha";
+
+import "google/protobuf/empty.proto";
+
+service ExampleService {
+    rpc CreateExample(CreateExampleRequest) returns (Example);
+    rpc GetExample(GetExampleRequest) returns (Example);
+    rpc DeleteExample(DeleteExampleRequest) returns (google.protobuf.Empty);
+}
+
+message Example {}
+
+message CreateExampleRequest{}
+
+message GetExampleRequest{}
+
+message DeleteExampleRequest{}
