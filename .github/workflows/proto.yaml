@@ -1,0 +1,25 @@
+name: "Protocol Buffers"
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+    - 'api/**'
+  pull_request:
+    branches: [ main ]
+    paths:
+    - 'api/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-go@v2
+      with:
+        go-version: 1.17
+    - run: apt install -y protobuf-compiler
+    - run: go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.26
+    - run: go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.1
+    - run: ./scripts/protoc.proto
+    - run: git diff --exit-code

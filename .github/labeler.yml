@@ -1,6 +1,8 @@
 example:
 - cmd/example/*
 - cmd/example/**/*
+- api/example/*
+- api/example/**/*
 
 docs:
 - docs/*
