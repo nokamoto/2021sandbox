@@ -1,0 +1,18 @@
+name: "Go Build"
+
+on:
+  workflow_run:
+    workflows: ["Go Test"]
+    branches: [ main ]
+    types:
+    - completed
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+    - uses: actions/checkout@v2
+    - uses: buildpacks/github-actions/setup-pack@v4.1.0
+    - run: make go-build-example
+

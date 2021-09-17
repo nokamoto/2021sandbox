@@ -11,3 +11,4 @@
 - [gRPC](https://grpc.io/)
 - [API design guide](https://cloud.google.com/apis/design/)
 - [ClangFormat](https://clang.llvm.org/docs/ClangFormat.html)
+- [Cloud Native Buildpacks](https://buildpacks.io/)

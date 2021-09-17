@@ -5,6 +5,10 @@ PROTO_GEN_DIR = internal/proto
 go: go-fmt go-test
 	go mod tidy
 
+.PHONY: go-build-example
+go-build-example:
+	pack build example --builder gcr.io/buildpacks/builder:v1 
+
 .PHONY: go-fmt
 go-fmt:
 	go fmt ./...
