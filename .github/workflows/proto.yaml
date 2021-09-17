@@ -5,10 +5,12 @@ on:
     branches: [ main ]
     paths:
     - 'api/**'
+    - '.github/workflows/proto.yaml'
   pull_request:
     branches: [ main ]
     paths:
     - 'api/**'
+    - '.github/workflows/proto.yaml'
 
 jobs:
   test:
