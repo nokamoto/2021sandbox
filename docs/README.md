@@ -8,3 +8,5 @@
 - [Pull Request Labeler](https://github.com/actions/labeler)
 - [Dependabot](https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/about-dependabot-version-updates)
 - [CodeQL Action](https://github.com/github/codeql-action)
+- [gRPC](https://grpc.io/)
+- [API design guide](https://cloud.google.com/apis/design/)
