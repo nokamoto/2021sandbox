@@ -27,8 +27,6 @@ jobs:
     - uses: github/codeql-action/init@v1
       with:
         languages: go
-    - run: go test -v ./...
-    - run: go mod tidy
-    - run: go fmt ./...
+    - run: make go
     - run: git diff --exit-code
     - uses: github/codeql-action/analyze@v1
