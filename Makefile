@@ -1,3 +1,5 @@
+EXAMPLE_IMAGE = ghcr.io/nokamoto/sandbox/example
+GO_BUILDER = gcr.io/buildpacks/builder:v1
 PROTO_FILES := $(shell find api -type f -name *.proto)
 PROTO_GEN_DIR = internal/proto
 
@@ -7,11 +9,18 @@ go: go-fmt go-test
 
 .PHONY: go-build-example
 go-build-example:
-	pack build example --builder gcr.io/buildpacks/builder:v1 
+	pack build --builder $(GO_BUILDER) $(EXAMPLE_IMAGE)
 
 .PHONY: go-fmt
 go-fmt:
 	go fmt ./...
+
+.PHONY: go-publish-example
+go-publish-example:
+ifndef TAG
+	$(error TAG required)
+endif
+	pack build --builder $(GO_BUILDER) --publish $(EXAMPLE_IMAGE):$(TAG)
 
 .PHONY: go-run-example
 go-run-example:
