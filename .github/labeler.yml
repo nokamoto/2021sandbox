@@ -9,3 +9,5 @@ docs:
 build:
 - .github/workflows/*
 - .github/workflows/**/*
+- WORKSPACE
+- BUILD.bazel

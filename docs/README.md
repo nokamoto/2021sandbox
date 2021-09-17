@@ -10,3 +10,5 @@
 - [CodeQL Action](https://github.com/github/codeql-action)
 - [Bazel](https://bazel.build/)
 - [Bazelisk](https://github.com/bazelbuild/bazelisk/blob/master/README.md)
+- [Go rules for Bazel](https://github.com/bazelbuild/rules_go)
+- [Gazelle build file generator](https://github.com/bazelbuild/bazel-gazelle)
