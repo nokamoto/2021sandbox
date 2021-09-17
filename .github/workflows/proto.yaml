@@ -5,10 +5,12 @@ on:
     branches: [ main ]
     paths:
     - 'api/**'
+    - '.github/workflows/proto.yaml'
   pull_request:
     branches: [ main ]
     paths:
     - 'api/**'
+    - '.github/workflows/proto.yaml'
 
 jobs:
   test:
@@ -21,6 +23,6 @@ jobs:
     - run: sudo apt install -y protobuf-compiler
     - run: go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.26
     - run: go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.1
-    - run: ./scripts/protoc.sh
-    - run: find . -type f -name *.proto | xargs clang-format -i
+    - run: make proto-fmt
+    - run: make protoc
     - run: git diff --exit-code
