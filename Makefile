@@ -1,4 +1,4 @@
-EXAMPLE_IMAGE = ghcr.io/nokamoto/example
+EXAMPLE_IMAGE = ghcr.io/nokamoto/sandbox/example
 GO_BUILDER = gcr.io/buildpacks/builder:v1
 PROTO_FILES := $(shell find api -type f -name *.proto)
 PROTO_GEN_DIR = internal/proto
