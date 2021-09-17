@@ -10,3 +10,4 @@
 - [CodeQL Action](https://github.com/github/codeql-action)
 - [gRPC](https://grpc.io/)
 - [API design guide](https://cloud.google.com/apis/design/)
+- [ClangFormat](https://clang.llvm.org/docs/ClangFormat.html)
