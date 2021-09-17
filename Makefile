@@ -9,6 +9,10 @@ go: go-fmt go-test
 go-fmt:
 	go fmt ./...
 
+.PHONY: go-run-example
+go-run-example:
+	GRPC_PORT=9000 go run ./cmd/example
+
 .PHONY: go-test
 go-test:
 	go test -v ./...
