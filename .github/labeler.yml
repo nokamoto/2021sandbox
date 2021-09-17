@@ -1,0 +1,11 @@
+example:
+- cmd/example/*
+- cmd/example/**/*
+
+docs:
+- docs/*
+- docs/**/*
+
+build:
+- .github/workflows/*
+- .github/workflows/**/*
