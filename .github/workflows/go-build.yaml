@@ -1,8 +1,6 @@
 name: "Go Build"
 
 on:
-  # pull_request:
-  #   branches: [ main ]
   workflow_run:
     workflows: ["Go Test"]
     branches: [ main ]
@@ -16,4 +14,5 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: buildpacks/github-actions/setup-pack@v4.1.0
+    - run: make go-build-example
 
