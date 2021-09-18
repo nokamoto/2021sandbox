@@ -12,3 +12,6 @@
 - [API design guide](https://cloud.google.com/apis/design/)
 - [ClangFormat](https://clang.llvm.org/docs/ClangFormat.html)
 - [Cloud Native Buildpacks](https://buildpacks.io/)
+- [Create a JavaScript Action using TypeScript](https://github.com/actions/typescript-action)
+- [TypeScript](https://www.typescriptlang.org/)
+- [@vercel/ncc](https://github.com/vercel/ncc)
