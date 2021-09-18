@@ -1,5 +1,5 @@
-name: 'delete-gcr'
-description: 'Delete github container registry versions'
+name: "delete-gcr"
+description: "Delete github container registry versions"
 runs:
-  using: 'node12'
-  main: 'dist/index.js'
+  using: "node12"
+  main: "dist/index.js"
