@@ -1,5 +1,19 @@
 name: "delete-gcr"
 description: "Delete github container registry versions"
+inputs:
+  username:
+    description: https://docs.github.com/en/rest/reference/packages#get-all-package-versions-for-a-package-owned-by-a-user
+    required: true
+  packagename:
+    description: The name of the package. https://docs.github.com/en/rest/reference/packages#get-all-package-versions-for-a-package-owned-by-a-user
+    required: true
+  token:
+    description: The token used to authenticate with GitHub Container Registry.
+    required: true
+  dryrun:
+    description: The dry-run feature allows you to inspect before proceeding to delete versions.
+    required: false
+    default: "false"
 runs:
   using: "node12"
   main: "dist/index.js"
