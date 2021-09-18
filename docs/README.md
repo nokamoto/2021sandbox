@@ -15,3 +15,5 @@
 - [Create a JavaScript Action using TypeScript](https://github.com/actions/typescript-action)
 - [TypeScript](https://www.typescriptlang.org/)
 - [@vercel/ncc](https://github.com/vercel/ncc)
+- [TypeScript ESLint](https://github.com/typescript-eslint/typescript-eslint)
+- [Prettier](https://prettier.io/)
