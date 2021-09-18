@@ -1,4 +1,5 @@
 import * as core from "@actions/core";
+import { getAllVersions } from "./gcr";
 
 async function run(): Promise<void> {
   try {
@@ -16,6 +17,8 @@ async function run(): Promise<void> {
       "dryrun =",
       dryrun
     );
+
+    await getAllVersions(token, username, packagename);
   } catch (err) {
     if (err instanceof Error) {
       core.setFailed(err.message);
