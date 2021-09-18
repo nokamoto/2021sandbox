@@ -31,4 +31,5 @@ jobs:
           username: nokamoto
           packagename: sandbox/example
           token: ${{ secrets.GITHUB_TOKEN }}
+          keep: 3
           dryrun: true

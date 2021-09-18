@@ -10,6 +10,10 @@ inputs:
   token:
     description: The token used to authenticate with GitHub Container Registry.
     required: true
+  keep:
+    description: The number of versions to keep.
+    required: false
+    default: "10"
   dryrun:
     description: The dry-run feature allows you to inspect before proceeding to delete versions.
     required: false

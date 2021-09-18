@@ -35,8 +35,16 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.getAllVersions = void 0;
+exports.deleteVersion = exports.getAllVersions = exports.listCandidates = exports.compareFn = void 0;
 const github = __importStar(__nccwpck_require__(438));
+function compareFn(a, b) {
+    return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
+}
+exports.compareFn = compareFn;
+function listCandidates(versions, keep) {
+    return versions.sort(compareFn).slice(keep);
+}
+exports.listCandidates = listCandidates;
 function getAllVersions(token, username, packagename) {
     return __awaiter(this, void 0, void 0, function* () {
         const octokit = github.getOctokit(token);
@@ -47,18 +55,36 @@ function getAllVersions(token, username, packagename) {
             username: username,
         })
             .then((res) => {
-            console.log(res.data);
+            console.log(res.url, JSON.stringify(res.data));
             return res.data.map((v) => {
                 return {
                     created_at: v.created_at,
                     deleted_at: v.deleted_at,
                     name: v.name,
+                    id: v.id,
                 };
             });
         });
     });
 }
 exports.getAllVersions = getAllVersions;
+function deleteVersion(token, username, packagename, version) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const octokit = github.getOctokit(token);
+        return yield octokit.rest.packages
+            .deletePackageVersionForUser({
+            package_type: "container",
+            package_name: packagename,
+            username: username,
+            package_version_id: version.id,
+        })
+            .then((res) => {
+            console.log(res.url, res.status);
+            return;
+        });
+    });
+}
+exports.deleteVersion = deleteVersion;
 
 
 /***/ }),
@@ -104,10 +130,28 @@ function run() {
         try {
             const username = core.getInput("username");
             const packagename = core.getInput("packagename");
+            const keep = core.getInput("keep");
             const token = core.getInput("token");
             const dryrun = core.getBooleanInput("dryrun");
-            console.log("username =", username, "packagename =", packagename, "token =", token, "dryrun =", dryrun);
-            yield (0, gcr_1.getAllVersions)(token, username, packagename);
+            console.log("username =", username, "packagename =", packagename, "keep = ", keep, "token =", token, "dryrun =", dryrun);
+            const versions = yield (0, gcr_1.getAllVersions)(token, username, packagename);
+            const keepNum = parseInt(keep);
+            if (keepNum < 0) {
+                core.setFailed("invalid input: keep < 0");
+            }
+            const deleteVerions = (0, gcr_1.listCandidates)(versions, keepNum);
+            console.log("delete versions = ", deleteVerions);
+            (() => __awaiter(this, void 0, void 0, function* () {
+                for (let i = 0; i < deleteVerions.length; i++) {
+                    const v = deleteVerions[i];
+                    if (dryrun) {
+                        console.log("dryrun delete", JSON.stringify(v));
+                    }
+                    else {
+                        yield (0, gcr_1.deleteVersion)(token, username, packagename, v);
+                    }
+                }
+            }))();
         }
         catch (err) {
             if (err instanceof Error) {
