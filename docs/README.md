@@ -17,3 +17,4 @@
 - [@vercel/ncc](https://github.com/vercel/ncc)
 - [TypeScript ESLint](https://github.com/typescript-eslint/typescript-eslint)
 - [Prettier](https://prettier.io/)
+- [ts-jest](https://kulshekhar.github.io/ts-jest/)
