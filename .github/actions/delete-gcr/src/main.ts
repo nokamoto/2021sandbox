@@ -7,13 +7,13 @@ async function run(): Promise<void> {
     const token = core.getInput("token");
     const dryrun = core.getBooleanInput("dryrun");
     console.log(
-      "username=",
+      "username =",
       username,
-      "packagename=",
+      "packagename =",
       packagename,
-      "token=",
+      "token =",
       token,
-      "dryrun=",
+      "dryrun =",
       dryrun
     );
   } catch (err) {
