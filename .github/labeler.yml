@@ -15,3 +15,7 @@ build:
 actions:
 - .github/actions/*
 - .github/actions/**/*
+
+sbx:
+- tools/rust/sbx/*
+- tools/rust/sbx/**/*

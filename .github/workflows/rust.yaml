@@ -1,0 +1,25 @@
+name: "Rust Test"
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+    - 'tools/rust/**'
+  pull_request:
+    branches: [ main ]
+    paths:
+    - 'tools/rust/**'
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - run: |
+        cargo build --verbose
+        cargo test --verbose
+      working-directory: ./tools/rust/sbx
+    - run: git diff --exit-code
