@@ -71,6 +71,7 @@ exports.getAllVersions = getAllVersions;
 function deleteVersion(token, username, packagename, version) {
     return __awaiter(this, void 0, void 0, function* () {
         const octokit = github.getOctokit(token);
+        console.log("delete version = ", version);
         return yield octokit.rest.packages
             .deletePackageVersionForUser({
             package_type: "container",
@@ -81,6 +82,10 @@ function deleteVersion(token, username, packagename, version) {
             .then((res) => {
             console.log(res.url, res.status);
             return;
+        })
+            .catch((err) => {
+            console.log(err);
+            throw err;
         });
     });
 }
@@ -141,7 +146,7 @@ function run() {
             }
             const deleteVerions = (0, gcr_1.listCandidates)(versions, keepNum);
             console.log("delete versions = ", deleteVerions);
-            (() => __awaiter(this, void 0, void 0, function* () {
+            yield (() => __awaiter(this, void 0, void 0, function* () {
                 for (let i = 0; i < deleteVerions.length; i++) {
                     const v = deleteVerions[i];
                     if (dryrun) {
