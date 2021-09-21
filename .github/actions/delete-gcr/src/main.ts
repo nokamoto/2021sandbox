@@ -32,7 +32,7 @@ async function run(): Promise<void> {
     const deleteVerions = listCandidates(versions, keepNum);
     console.log("delete versions = ", deleteVerions);
 
-    (async () => {
+    await (async () => {
       for (let i = 0; i < deleteVerions.length; i++) {
         const v = deleteVerions[i];
         if (dryrun) {

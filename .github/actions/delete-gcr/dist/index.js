@@ -141,7 +141,7 @@ function run() {
             }
             const deleteVerions = (0, gcr_1.listCandidates)(versions, keepNum);
             console.log("delete versions = ", deleteVerions);
-            (() => __awaiter(this, void 0, void 0, function* () {
+            yield (() => __awaiter(this, void 0, void 0, function* () {
                 for (let i = 0; i < deleteVerions.length; i++) {
                     const v = deleteVerions[i];
                     if (dryrun) {
