@@ -71,6 +71,7 @@ exports.getAllVersions = getAllVersions;
 function deleteVersion(token, username, packagename, version) {
     return __awaiter(this, void 0, void 0, function* () {
         const octokit = github.getOctokit(token);
+        console.log("delete version = ", version);
         return yield octokit.rest.packages
             .deletePackageVersionForUser({
             package_type: "container",
@@ -81,6 +82,8 @@ function deleteVersion(token, username, packagename, version) {
             .then((res) => {
             console.log(res.url, res.status);
             return;
+        }).catch((err) => {
+            console.log(err);
         });
     });
 }
