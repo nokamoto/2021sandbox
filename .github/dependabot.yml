@@ -8,3 +8,7 @@ updates:
   directory: "./.github/actions/delete-gcr"
   schedule:
     interval: "daily"
+- package-ecosystem: "cargo"
+  directory: "./tools/rust/sbx"
+  schedule:
+    interval: "daily"
