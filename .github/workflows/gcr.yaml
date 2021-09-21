@@ -15,5 +15,5 @@ jobs:
         with:
           username: nokamoto
           packagename: sandbox/example
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PAT }}
           keep: 3
