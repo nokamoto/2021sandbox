@@ -49,6 +49,8 @@ export async function deleteVersion(
 ): Promise<void> {
   const octokit = github.getOctokit(token);
 
+  octokit.rest.packages.deletePackageVersionForUser
+
   return await octokit.rest.packages
     .deletePackageVersionForUser({
       package_type: "container",
@@ -59,5 +61,7 @@ export async function deleteVersion(
     .then((res) => {
       console.log(res.url, res.status);
       return;
+    }).catch((err) => {
+      console.log(err);
     });
 }
