@@ -64,5 +64,6 @@ export async function deleteVersion(
     })
     .catch((err) => {
       console.log(err);
+      throw err;
     });
 }

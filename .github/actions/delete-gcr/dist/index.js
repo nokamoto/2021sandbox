@@ -82,8 +82,10 @@ function deleteVersion(token, username, packagename, version) {
             .then((res) => {
             console.log(res.url, res.status);
             return;
-        }).catch((err) => {
+        })
+            .catch((err) => {
             console.log(err);
+            throw err;
         });
     });
 }
