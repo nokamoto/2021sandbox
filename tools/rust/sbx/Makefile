@@ -8,7 +8,7 @@ fmt:
 
 .PHONY: lint
 lint:
-	cargo clippy
+	cargo clippy -- -D warnings
 
 .PHONY: build
 build:
