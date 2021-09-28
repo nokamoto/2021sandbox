@@ -20,3 +20,4 @@
 - [ts-jest](https://kulshekhar.github.io/ts-jest/)
 - [The Rust Programming Language](https://doc.rust-lang.org/book/title-page.html)
 - [The Cargo Book](https://doc.rust-lang.org/cargo/index.html)
+- [Rust by Example](https://doc.rust-lang.org/stable/rust-by-example/)
