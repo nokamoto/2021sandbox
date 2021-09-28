@@ -10,11 +10,14 @@ fn sbx() -> clap::App<'static> {
         .subcommand(example::app())
 }
 
-fn main() {
+#[tokio::main]
+async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let matches = sbx().get_matches();
 
     match matches.subcommand() {
-        Some(("example", example)) => example::run(example),
+        Some(("example", example)) => example::run(example).await?,
         _ => unreachable!(),
     }
+
+    Ok(())
 }
