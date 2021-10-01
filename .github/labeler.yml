@@ -19,3 +19,7 @@ actions:
 sbx:
 - tools/rust/sbx/*
 - tools/rust/sbx/**/*
+
+minimatchex:
+- tools/ts/minimatchex/*
+- tools/ts/minimatchex/**/*

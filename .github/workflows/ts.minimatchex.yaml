@@ -1,0 +1,26 @@
+name: 'TypeScript tools/ts/minimatchex'
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+    - 'tools/ts/minimatchex/**'
+    - 'tools/ts/minimatchex/**/*'
+    - '.github/workflows/ts.minimatchex.yaml'
+  pull_request:
+    branches: [ main ]
+    paths:
+    - 'tools/ts/minimatchex/**'
+    - 'tools/ts/minimatchex/**/*'
+    - '.github/workflows/ts.minimatchex.yaml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          npm install
+          npm run all
+        working-directory: tools/ts/minimatchex
+      - run: git diff --exit-code
