@@ -6,11 +6,13 @@ on:
     paths:
     - 'tools/ts/minimatchex/**'
     - 'tools/ts/minimatchex/**/*'
+    - '.github/workflows/ts.minimatchex.yaml'
   pull_request:
     branches: [ main ]
     paths:
     - 'tools/ts/minimatchex/**'
     - 'tools/ts/minimatchex/**/*'
+    - '.github/workflows/ts.minimatchex.yaml'
 
 jobs:
   build:
