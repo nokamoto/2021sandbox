@@ -24,3 +24,17 @@ test("minimatch subdirectory", () => {
   expect(minimatch("example/sub/file", "example/**/*")).toStrictEqual(true);
   expect(minimatch("example/sub/sub/file", "example/**/*")).toStrictEqual(true);
 });
+
+test("mminimatch file extension", () => {
+  expect(minimatch("file.ts", "*.ts")).toStrictEqual(true);
+  expect(minimatch("example/sub/file.ts", "*.ts")).toStrictEqual(false);
+
+  expect(minimatch("file.ts", "**.ts")).toStrictEqual(true);
+  expect(minimatch("example/sub/file.ts", "**.ts")).toStrictEqual(false);
+
+  expect(minimatch("file.ts", "*/*.ts")).toStrictEqual(false);
+  expect(minimatch("example/sub/file.ts", "*/*.ts")).toStrictEqual(false);
+
+  expect(minimatch("file.ts", "**/*.ts")).toStrictEqual(true);
+  expect(minimatch("example/sub/file.ts", "**/*.ts")).toStrictEqual(true);
+});
