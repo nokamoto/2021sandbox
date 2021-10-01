@@ -8,6 +8,10 @@ updates:
   directory: "./.github/actions/delete-gcr"
   schedule:
     interval: "daily"
+- package-ecosystem: "npm"
+  directory: "./tools/ts/minimatchex"
+  schedule:
+    interval: "daily"
 - package-ecosystem: "cargo"
   directory: "./tools/rust/sbx"
   schedule:
