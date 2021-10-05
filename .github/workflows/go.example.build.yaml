@@ -1,8 +1,8 @@
-name: "Go Build"
+name: "Go Example Build"
 
 on:
   workflow_run:
-    workflows: ["Go Test"]
+    workflows: ["Go Example Test"]
     branches: [ main ]
     types:
     - completed
