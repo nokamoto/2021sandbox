@@ -15,5 +15,15 @@ message Edge {
   string name = 1;
   string display_name = 2;
   // Node.name
+  // length == 2
   repeated string joins = 3;
+  int32 length = 4;
+  // EdgeCondition.name
+  string condition = 5;
+}
+
+message EdgeCondition {
+  // `"edgeconditions/{id}"`
+  string name = 1;
+  string display_name = 2;
 }
