@@ -23,3 +23,9 @@ sbx:
 minimatchex:
 - tools/ts/minimatchex/*
 - tools/ts/minimatchex/**/*
+
+alchemy:
+- api/alchemy/*
+- api/alchemy/**/*
+- internal/alchemy/*
+- internal/alchemy/**/*

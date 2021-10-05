@@ -1,0 +1,26 @@
+name: "Go Alchemy Test"
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+    - 'internal/proto/api/alchemy/**'
+    - 'go.*'
+    - '.github/workflows/go.alchemy.yaml'
+  pull_request:
+    branches: [ main ]
+    paths:
+    - 'internal/proto/api/alchemy/**'
+    - 'go.*'
+    - '.github/workflows/go.alchemy.yaml'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-go@v2
+      with:
+        go-version: 1.17
+    - run: make go
+    - run: git diff --exit-code

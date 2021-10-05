@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package alchemy.v1alpha;
+
+option go_package = "github.com/nokamoto/sandbox/internal/proto/alchemy/v1alpha";
+
+message Node {
+  // `"nodes/{id}"`
+  string name = 1;
+  string display_name = 2;
+}
+
+message Edge {
+  // `"edges/{id}"`
+  string name = 1;
+  string display_name = 2;
+  // Node.name
+  // length == 2
+  repeated string joins = 3;
+  int32 length = 4;
+  // EdgeCondition.name
+  string condition = 5;
+}
+
+message EdgeCondition {
+  // `"edgeconditions/{id}"`
+  string name = 1;
+  string display_name = 2;
+}

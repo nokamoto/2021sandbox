@@ -1,20 +1,20 @@
-name: "Go Test"
+name: "Go Example Test"
 
 on:
   push:
     branches: [ main ]
     paths:
-    - 'cmd/**'
-    - 'internal/**'
-    - 'go.mod'
-    - '.github/workflows/go.yaml'
+    - 'cmd/example/**'
+    - 'internal/proto/api/example/**'
+    - 'go.*'
+    - '.github/workflows/go.example.yaml'
   pull_request:
     branches: [ main ]
     paths:
-    - 'cmd/**'
-    - 'internal/**'
-    - 'go.mod'
-    - '.github/workflows/go.yaml'
+    - 'cmd/example/**'
+    - 'internal/proto/api/example/**'
+    - 'go.*'
+    - '.github/workflows/go.example.yaml'
 
 jobs:
   test:
