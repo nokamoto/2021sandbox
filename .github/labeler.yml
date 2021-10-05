@@ -27,3 +27,5 @@ minimatchex:
 alchemy:
 - api/alchemy/*
 - api/alchemy/**/*
+- internal/alchemy/*
+- internal/alchemy/**/*
