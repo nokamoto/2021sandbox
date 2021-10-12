@@ -1,0 +1,24 @@
+name: 'TypeScript actions/delete-gcr'
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+    - '.github/actions/conflict-detector/**'
+    - '.github/workflows/ts.conflict-detector.yaml'
+  pull_request:
+    branches: [ main ]
+    paths:
+    - '.github/actions/conflict-detector/**'
+    - '.github/workflows/ts.conflict-detector.yaml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          npm install
+          npm run all
+        working-directory: ./.github/actions/conflict-detector
+      - run: git diff --exit-code
