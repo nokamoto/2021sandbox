@@ -1,0 +1,5 @@
+name: "conflict-detector"
+description: "Detect github pull request with merge conflicts"
+runs:
+  using: "node12"
+  main: "dist/index.js"
