@@ -16,3 +16,7 @@ updates:
   directory: "./tools/rust/sbx"
   schedule:
     interval: "daily"
+- package-ecosystem: github-actions
+  directory: "/"
+  schedule:
+    interval: "daily"
