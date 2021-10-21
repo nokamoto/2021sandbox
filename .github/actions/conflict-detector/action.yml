@@ -1,5 +1,23 @@
 name: "conflict-detector"
 description: "Detect github pull request with merge conflicts"
+inputs:
+  owner:
+    description: The name of the owner.
+    required: true
+  repo:
+    description: The name of the repository.
+    required: true
+  token:
+    description: The token used to authenticate with GitHub APIs.
+    required: true
+  body:
+    description: The body string of the issue comment.
+    required: false
+    default: "Conflicting files found"
+  dryrun:
+    description: The dry-run feature allows you to inspect before proceeding to post comments.
+    required: false
+    default: "false"
 runs:
   using: "node12"
   main: "dist/index.js"
