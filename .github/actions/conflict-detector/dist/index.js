@@ -48,33 +48,29 @@ function run() {
             console.log("token =", token, "owner =", owner, "repo =", repo, "body =", body, "dryrun =", dryrun);
             const pulls = yield (0, pr_1.getPulls)(token, owner, repo);
             const conflictingPulls = [];
-            yield (() => __awaiter(this, void 0, void 0, function* () {
-                for (let i = 0; i < pulls.length; i++) {
-                    let pull = pulls[i];
-                    pull = yield (0, pr_1.getPull)(token, owner, repo, pull);
-                    console.log("pull =", pull);
-                    switch (pull.state) {
-                        case "dirty":
-                            conflictingPulls.push(pull.number);
-                            break;
-                        default:
-                            console.log("skip state =", pull.state);
-                            break;
-                    }
+            for (let i = 0; i < pulls.length; i++) {
+                let pull = pulls[i];
+                pull = yield (0, pr_1.getPull)(token, owner, repo, pull);
+                console.log("pull =", pull);
+                switch (pull.state) {
+                    case "dirty":
+                        conflictingPulls.push(pull.number);
+                        break;
+                    default:
+                        console.log("skip state =", pull.state);
+                        break;
                 }
-            }))();
+            }
             console.log("conflicting =", conflictingPulls);
-            yield (() => __awaiter(this, void 0, void 0, function* () {
-                for (let i = 0; i < conflictingPulls.length; i++) {
-                    if (dryrun) {
-                        console.log("dryrun comment: #", conflictingPulls[i]);
-                    }
-                    else {
-                        console.log("run: #", conflictingPulls[i]);
-                        yield (0, pr_1.createComment)(token, owner, repo, conflictingPulls[i], body);
-                    }
+            for (let i = 0; i < conflictingPulls.length; i++) {
+                if (dryrun) {
+                    console.log("dryrun comment: #", conflictingPulls[i]);
                 }
-            }));
+                else {
+                    console.log("run: #", conflictingPulls[i]);
+                    yield (0, pr_1.createComment)(token, owner, repo, conflictingPulls[i], body);
+                }
+            }
         }
         catch (err) {
             if (err instanceof Error) {
