@@ -54,7 +54,7 @@ function run() {
                     pull = yield (0, pr_1.getPull)(token, owner, repo, pull);
                     console.log("pull =", pull);
                     switch (pull.state) {
-                        case "CONFLICTING":
+                        case "dirty":
                             conflictingPulls.push(pull.number);
                             break;
                         default:
