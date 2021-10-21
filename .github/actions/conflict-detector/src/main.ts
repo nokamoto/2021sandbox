@@ -48,6 +48,7 @@ async function run(): Promise<void> {
         if (dryrun) {
           console.log("dryrun comment: #", conflictingPulls[i]);
         } else {
+          console.log("run: #", conflictingPulls[i]);
           await createComment(token, owner, repo, conflictingPulls[i], body);
         }
       }

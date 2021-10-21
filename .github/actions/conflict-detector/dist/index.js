@@ -70,6 +70,7 @@ function run() {
                         console.log("dryrun comment: #", conflictingPulls[i]);
                     }
                     else {
+                        console.log("run: #", conflictingPulls[i]);
                         yield (0, pr_1.createComment)(token, owner, repo, conflictingPulls[i], body);
                     }
                 }
@@ -177,7 +178,8 @@ function createComment(token, owner, repo, issueNumber, body) {
             .then((res) => {
             console.log("res =", JSON.stringify(res.data));
             return;
-        }).catch((err) => {
+        })
+            .catch((err) => {
             console.log(err);
         });
     });
