@@ -32,4 +32,4 @@ jobs:
           repo: sandbox
           token: ${{ secrets.GITHUB_TOKEN }}
           body: "CONFLICTING"
-          dryrun: true
+          # dryrun: true

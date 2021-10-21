@@ -31,7 +31,7 @@ async function run(): Promise<void> {
         pull = await getPull(token, owner, repo, pull);
         console.log("pull =", pull);
         switch (pull.state) {
-          case "CONFLICTING":
+          case "dirty":
             conflictingPulls.push(pull.number);
             break;
           default:
