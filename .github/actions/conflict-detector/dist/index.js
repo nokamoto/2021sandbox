@@ -174,7 +174,8 @@ function createComment(token, owner, repo, issueNumber, body) {
             issue_number: issueNumber,
             body: body,
         })
-            .then(() => {
+            .then((res) => {
+            console.log("res =", JSON.stringify(res.data));
             return;
         });
     });
