@@ -22,3 +22,14 @@ jobs:
           npm run all
         working-directory: ./.github/actions/conflict-detector
       - run: git diff --exit-code
+  dry-run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/conflict-detector
+        with:
+          owner: nokamoto
+          repo: sandbox
+          token: ${{ secrets.GITHUB_TOKEN }}
+          body: "CONFLICTING"
+          dryrun: true
