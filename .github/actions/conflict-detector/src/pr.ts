@@ -68,5 +68,8 @@ export async function createComment(
     .then((res) => {
       console.log("res =", JSON.stringify(res.data));
       return;
+    })
+    .catch((err) => {
+      console.log(err);
     });
 }
