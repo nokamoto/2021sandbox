@@ -9,4 +9,6 @@ RUN add-apt-repository -y ppa:cncf-buildpacks/pack-cli
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install --no-install-recommends protobuf-compiler clang-format pack-cli
 
+RUN curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.sh | bash
+
 USER codespace

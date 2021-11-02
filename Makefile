@@ -40,3 +40,7 @@ protoc:
 .PHONY: proto-fmt
 proto-fmt:
 	find . -type f -name *.proto | xargs clang-format -i
+
+kind:
+	curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.11.1/kind-linux-amd64
+	chmod +x ./kind
